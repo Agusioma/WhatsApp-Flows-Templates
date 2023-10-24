@@ -1,0 +1,165 @@
+{
+    "version": "2.1",
+    "screens": [
+        {
+            "id": "SCREEN_ONE",
+            "title": "Appointment",
+            "data": {},
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "TextHeading",
+                                "text": "Make an appointment"
+                            },
+                            {
+                                "type": "TextSubheading",
+                                "text": "Please fill out the form below to make an appointment."
+                            },
+                            {
+                                "type": "TextInput",
+                                "name": "firstname",
+                                "label": "First Name",
+                                "input-type": "text",
+                                "required": true
+                            },
+                             {
+                                "type": "TextInput",
+                                "name": "lastname",
+                                "label": "Last Name",
+                                "input-type": "text",
+                                "required": true
+                            },
+                            {
+                                "type": "TextInput",
+                                "label": "Email Address",
+                                "name": "email",
+                                "input-type": "email",
+                                "required": true
+                            },
+                                          {
+                "type": "DatePicker",
+                "name": "date",
+                "label": "The Appointment Date",
+                "min-date": "1693569600000",
+                "max-date": "1767182400000",
+                "required": true,
+                "unavailable-dates": [
+                  "1694779200000",
+                  "1697371200000"
+                ]
+              },
+                            {
+                                "type": "Footer",
+                                "label": "Proceed",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "ADDITIONAL_INFO"
+                                    },
+                                    "payload": {
+                                        "firstname": "${form.firstname}",
+                                        "lastname": "${form.lastname}",
+                                        "email": "${form.email}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ADDITIONAL_INFO",
+            "title": "Additional information",
+            "data": {
+                "firstname": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "lastname": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "email": {
+                    "type": "string",
+                    "__example__": "Example"
+                }
+            },
+            "terminal": true,
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "TextHeading",
+                                "text": "Additional information"
+                            },
+                            {
+                                "type": "TextBody",
+                                "text": "Optionally give us an additional context of what you may need to consult the expert by choosing an option below"
+                            },
+                            {
+                                "type": "RadioButtonsGroup",
+                                "label": "Choose option",
+                                "required": false,
+                                "name": "source",
+                                "data-source": [
+                                    {
+                                        "id": "0",
+                                        "title": "Structural Analysis"
+                                    },
+                                    {
+                                        "id": "1",
+                                        "title": "Energy Efficiency"
+                                    },
+                                    {
+                                        "id": "2",
+                                        "title": "Software Development"
+                                    },
+                                     {
+                                        "id": "3",
+                                        "title": "Preventive Health Advice"
+                                    },
+                                     {
+                                        "id": "4",
+                                        "title": "Diagnosis and Treatment"
+                                    },
+                                     {
+                                        "id": "5",
+                                        "title": "Mental Health Support"
+                                    },
+                                    {
+                                        "id": "6",
+                                        "title": "Product Design"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Done",
+                                "on-click-action": {
+                                    "name": "complete",
+                                    "payload": {
+                                        "source": "${form.source}",
+                                        "firstname": "${data.firstname}",
+                                        "lastname": "${data.lastname}",
+                                        "email": "${data.email}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+  "version": "2.1",
+  "screens": [
+    {
+      "id": "SCREEN_ONE",
+      "title": "Contact us",
+      "terminal": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "form",
+            "children": [
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "First Name",
+                "name": "first_name"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Second Name",
+                "name": "second_name"
+              },
+              {
+                "type": "TextArea",
+                "required": true,
+                "label": "Type here your issue",
+                "name": "info"
+              },
+               {
+                                "type": "TextBody",
+                                "text": "We will try our best to reach back to you as soon as possible"
+                            },
+              {
+                "type": "Footer",
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "firstname": "${form.first_name}",
+                    "secondname": "${form.second_name}",
+                    "issue": "${form.info}"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

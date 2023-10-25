@@ -115,23 +115,23 @@
                                 "data-source": [
                                     {
                                         "id": "0",
-                                        "title": "Structural Analysis"
+                                        "title": "Flight Delays or Cancellations"
                                     },
                                     {
                                         "id": "1",
-                                        "title": "Energy Efficiency"
+                                        "title": "Customized Itinerary"
                                     },
                                     {
                                         "id": "2",
-                                        "title": "Software Development"
+                                        "title": "Language Barriers"
                                     },
                                      {
                                         "id": "3",
-                                        "title": "Preventive Health Advice"
+                                        "title": "Complex Logistics"
                                     },
                                      {
                                         "id": "4",
-                                        "title": "Diagnosis and Treatment"
+                                        "title": "Exclusive Experiences"
                                     },
                                      {
                                         "id": "5",
@@ -139,7 +139,7 @@
                                     },
                                     {
                                         "id": "6",
-                                        "title": "Product Design"
+                                        "title": "Travel Documentation"
                                     }
                                 ]
                             },

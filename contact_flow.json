@@ -22,18 +22,18 @@
               {
                 "type": "TextInput",
                 "required": true,
-                "label": "Second Name",
+                "label": "Last Name/Surname",
                 "name": "second_name"
               },
               {
                 "type": "TextArea",
                 "required": true,
-                "label": "Type here your issue",
+                "label": "Type your message",
                 "name": "info"
               },
                {
                                 "type": "TextBody",
-                                "text": "We will try our best to reach back to you as soon as possible"
+                                "text": "We will try to reach out to you as soon as possible!\\nPlease allow [x] business days to receive a response."
                             },
               {
                 "type": "Footer",

@@ -105,11 +105,11 @@
                             },
                             {
                                 "type": "TextBody",
-                                "text": "Optionally give us an additional context of what you may need to consult the expert by choosing an option below"
+                                "text": "Optionally, please select from the following choices so that we may better assist you."
                             },
                             {
                                 "type": "RadioButtonsGroup",
-                                "label": "Choose option",
+                                "label": "Choose one",
                                 "required": false,
                                 "name": "source",
                                 "data-source": [

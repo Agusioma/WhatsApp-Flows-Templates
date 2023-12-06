@@ -1,0 +1,727 @@
+{
+    "version": "2.1",
+    "screens": [
+        {
+            "id": "SCREEN_ONE",
+            "title": "Survey",
+            "data": {},
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "TextHeading",
+                                "text": "Tour Company Feedback Survey"
+                            },
+                            {
+                                "type": "TextCaption",
+                                "text": "Enhancing Your Tour Experience. Your Valuable Feedback Matters.\n\n"
+                            },
+                            {
+                                "type": "TextSubheading",
+                                "text": "How did you hear about our tour company?"
+                            },
+                            {
+                                "type": "RadioButtonsGroup",
+                                "required": true,
+                                "name": "source",
+                                "data-source": [
+                                    {
+                                        "id": "0",
+                                        "title": "Online search"
+                                    },
+                                    {
+                                        "id": "1",
+                                        "title": "Social media"
+                                    },
+                                    {
+                                        "id": "2",
+                                        "title": " Referral from a friend/family"
+                                    },
+                                    {
+                                        "id": "3",
+                                        "title": "Advertisement"
+                                    },
+                                    {
+                                        "id": "4",
+                                        "title": "Others"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "SCREEN_TWO"
+                                    },
+                                    "payload": {
+                                        "source": "${form.source}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "SCREEN_TWO",
+            "title": "Survey",
+            "data": {
+                "source": {
+                    "type": "string",
+                    "__example__": "Example"
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "TextSubheading",
+                                "text": "Which type of tour did you recently experience with us?"
+                            },
+                            {
+                                "type": "RadioButtonsGroup",
+                                "required": true,
+                                "name": "tour_type",
+                                "data-source": [
+                                    {
+                                        "id": "0",
+                                        "title": "Cultural tour"
+                                    },
+                                    {
+                                        "id": "1",
+                                        "title": "Adventure tour"
+                                    },
+                                    {
+                                        "id": "2",
+                                        "title": "Historical tour"
+                                    },
+                                    {
+                                        "id": "3",
+                                        "title": "Wildlife tour"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "SCREEN_THREE"
+                                    },
+                                    "payload": {
+                                        "source": "${data.source}",
+                                        "tour_type": "${form.tour_type}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "SCREEN_THREE",
+            "title": "Survey",
+            "data": {
+                "source": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_type": {
+                    "type": "string",
+                    "__example__": "Example"
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "TextSubheading",
+                                "text": "On a scale of 1 to 5, how would you rate the overall quality of the tour?"
+                            },
+                            {
+                                "type": "RadioButtonsGroup",
+                                "required": true,
+                                "name": "tour_quality",
+                                "data-source": [
+                                    {
+                                        "id": "0",
+                                        "title": "1 - Poor"
+                                    },
+                                    {
+                                        "id": "1",
+                                        "title": "2 - Below Average"
+                                    },
+                                    {
+                                        "id": "2",
+                                        "title": "3 - Average"
+                                    },
+                                    {
+                                        "id": "3",
+                                        "title": "4 - Good"
+                                    },
+                                    {
+                                        "id": "4",
+                                        "title": "5 - Excellent"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "SCREEN_FOUR"
+                                    },
+                                    "payload": {
+                                        "source": "${data.source}",
+                                        "tour_type": "${data.tour_type}",
+                                        "tour_quality": "${form.tour_quality}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "SCREEN_FOUR",
+            "title": "Survey",
+            "data": {
+                "source": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_type": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_quality": {
+                    "type": "string",
+                    "__example__": "Example"
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "TextSubheading",
+                                "text": "What influenced your decision to choose our tour company?"
+                            },
+                            {
+                                "type": "RadioButtonsGroup",
+                                "required": true,
+                                "name": "decision_influencer",
+                                "data-source": [
+                                    {
+                                        "id": "0",
+                                        "title": "Positive reviews"
+                                    },
+                                    {
+                                        "id": "1",
+                                        "title": "Pricing"
+                                    },
+                                    {
+                                        "id": "2",
+                                        "title": "Tour destinations offered"
+                                    },
+                                    {
+                                        "id": "3",
+                                        "title": "Reputation"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "SCREEN_FIVE"
+                                    },
+                                    "payload": {
+                                        "source": "${data.source}",
+                                        "tour_type": "${data.tour_type}",
+                                        "tour_quality": "${data.tour_quality}",
+                                        "decision_influencer": "${form.decision_influencer}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "SCREEN_FIVE",
+            "title": "Survey",
+            "data": {
+                "source": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_type": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_quality": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "decision_influencer": {
+                    "type": "string",
+                    "__example__": "Example"
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "TextSubheading",
+                                "text": "How knowledgeable and friendly were our tour guides?"
+                            },
+                            {
+                                "type": "RadioButtonsGroup",
+                                "required": true,
+                                "name": "tour_guides",
+                                "data-source": [
+                                    {
+                                        "id": "0",
+                                        "title": "Knowledgeable and friendly"
+                                    },
+                                    {
+                                        "id": "1",
+                                        "title": "Knowledgeable but not friendly"
+                                    },
+                                    {
+                                        "id": "2",
+                                        "title": "Friendly but not knowledgeable"
+                                    },
+                                    {
+                                        "id": "3",
+                                        "title": "Neither of the two"
+                                    },
+                                    {
+                                        "id": "4",
+                                        "title": "I didn’t interact with them"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "SCREEN_SIX"
+                                    },
+                                    "payload": {
+                                        "source": "${data.source}",
+                                        "tour_type": "${data.tour_type}",
+                                        "tour_quality": "${data.tour_quality}",
+                                        "decision_influencer": "${data.decision_influencer}",
+                                        "tour_guides": "${form.tour_guides}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "SCREEN_SIX",
+            "title": "Survey",
+            "data": {
+                "source": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_type": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_quality": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "decision_influencer": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_guides": {
+                    "type": "string",
+                    "__example__": "Example"
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "TextSubheading",
+                                "text": "What aspects of the tour did you find most enjoyable? (Select all that apply)"
+                            },
+                            {
+                                "type": "RadioButtonsGroup",
+                                "required": true,
+                                "name": "aspects_enjoyed",
+                                "data-source": [
+                                    {
+                                        "id": "0",
+                                        "title": "Tourist attractions visited"
+                                    },
+                                    {
+                                        "id": "1",
+                                        "title": "Tour guide's commentary"
+                                    },
+                                    {
+                                        "id": "2",
+                                        "title": " Group dynamics/interaction"
+                                    },
+                                    {
+                                        "id": "3",
+                                        "title": "Activities offered"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "SCREEN_SEVEN"
+                                    },
+                                    "payload": {
+                                        "source": "${data.source}",
+                                        "tour_type": "${data.tour_type}",
+                                        "tour_quality": "${data.tour_quality}",
+                                        "decision_influencer": "${data.decision_influencer}",
+                                        "tour_guides": "${data.tour_guides}",
+                                        "aspects_enjoyed": "${form.aspects_enjoyed}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "SCREEN_SEVEN",
+            "title": "Survey",
+            "data": {
+                "source": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_type": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_quality": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "decision_influencer": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_guides": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "aspects_enjoyed": {
+                    "type": "string",
+                    "__example__": "Example"
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "TextSubheading",
+                                "text": "Were there any aspects of the tour that could be improved?"
+                            },
+                            {
+                                "type": "RadioButtonsGroup",
+                                "required": true,
+                                "name": "improvements",
+                                "data-source": [
+                                    {
+                                        "id": "0",
+                                        "title": "Tour itinerary"
+                                    },
+                                    {
+                                        "id": "1",
+                                        "title": "Communication before the tour"
+                                    },
+                                    {
+                                        "id": "2",
+                                        "title": "Transportation arrangements"
+                                    },
+                                    {
+                                        "id": "3",
+                                        "title": "Advertisement"
+                                    },
+                                    {
+                                        "id": "4",
+                                        "title": "Accommodation quality"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "SCREEN_EIGHT"
+                                    },
+                                    "payload": {
+                                        "source": "${data.source}",
+                                        "tour_type": "${data.tour_type}",
+                                        "tour_quality": "${data.tour_quality}",
+                                        "decision_influencer": "${data.decision_influencer}",
+                                        "tour_guides": "${data.tour_guides}",
+                                        "aspects_enjoyed": "${data.aspects_enjoyed}",
+                                        "improvements": "${form.improvements}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "SCREEN_EIGHT",
+            "title": "Survey",
+            "data": {
+                "source": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_type": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_quality": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "decision_influencer": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_guides": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "aspects_enjoyed": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "improvements": {
+                    "type": "string",
+                    "__example__": "Example"
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "TextSubheading",
+                                "text": "Would you recommend our tour company to a friend or family member?"
+                            },
+                            {
+                                "type": "RadioButtonsGroup",
+                                "required": true,
+                                "name": "recommend",
+                                "data-source": [
+                                    {
+                                        "id": "0",
+                                        "title": "Yes, definitely"
+                                    },
+                                    {
+                                        "id": "1",
+                                        "title": "Yes, but with reservations"
+                                    },
+                                    {
+                                        "id": "2",
+                                        "title": "No, I would not"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Next",
+                                "on-click-action": {
+                                    "name": "navigate",
+                                    "next": {
+                                        "type": "screen",
+                                        "name": "SCREEN_NINE"
+                                    },
+                                    "payload": {
+                                        "source": "${data.source}",
+                                        "tour_type": "${data.tour_type}",
+                                        "tour_quality": "${data.tour_quality}",
+                                        "decision_influencer": "${data.decision_influencer}",
+                                        "tour_guides": "${data.tour_guides}",
+                                        "aspects_enjoyed": "${data.aspects_enjoyed}",
+                                        "improvements": "${data.improvements}",
+                                        "recommend": "${form.recommend}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": "SCREEN_NINE",
+            "title": "Survey",
+            "terminal": true,
+            "data": {
+                "source": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_type": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_quality": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "decision_influencer": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "tour_guides": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "aspects_enjoyed": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "improvements": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "recommend": {
+                    "type": "string",
+                    "__example__": "Example"
+                }
+            },
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "TextSubheading",
+                                "text": "How likely are you to book another tour with us in the future?"
+                            },
+                            {
+                                "type": "RadioButtonsGroup",
+                                "required": true,
+                                "name": "return_booking",
+                                "data-source": [
+                                    {
+                                        "id": "0",
+                                        "title": "Very likely"
+                                    },
+                                    {
+                                        "id": "1",
+                                        "title": "Likely"
+                                    },
+                                    {
+                                        "id": "2",
+                                        "title": "Undecided"
+                                    },
+                                    {
+                                        "id": "3",
+                                        "title": "Unlikely"
+                                    },
+                                    {
+                                        "id": "4",
+                                        "title": "Very likely"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Submit",
+                                "on-click-action": {
+                                    "name": "complete",
+                                    "payload": {
+                                        "source": "${data.source}",
+                                        "tour_type": "${data.tour_type}",
+                                        "tour_quality": "${data.tour_quality}",
+                                        "decision_influencer": "${data.decision_influencer}",
+                                        "tour_guides": "${data.tour_guides}",
+                                        "aspects_enjoyed": "${data.aspects_enjoyed}",
+                                        "improvements": "${data.improvements}",
+                                        "recommend": "${data.recommend}",
+                                        "return_booking": "${form.return_booking}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

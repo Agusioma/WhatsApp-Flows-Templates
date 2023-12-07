@@ -78,16 +78,16 @@ def send_message(message, phone_number, message_option, name):
     greetings_text_body = f"\nHello {name}. Welcome to our shop. What would you like us to help you with?\nPlease reply with the digit prompts, for example, *1*.\n\n1. {code_prompt_texts[0]}\n2. {code_prompt_texts[1]}\n3. {code_prompt_texts[2]}\n\nAny other reply will be assumed to be prompt 3."
 
     contact_flow_payload = flow_details(flow_header="Contact Us",
-                                        flow_body="As per your previous message, you indicated that you would like to contact us",
+                                        flow_body="You have indicated that you would like to contact us",
                                         flow_footer="Click the button below to proceed",
                                         flow_id=str(<FLOW-ID>),
                                         flow_cta="Proceed",
                                         recipient_phone_number=phone_number)
 
     appointment_flow_payload = flow_details(flow_header="Book Appointment",
-                                            flow_body="As per your previous message, you indicated that you would like to book an appointment",
+                                            flow_body="You have indicated that you would like to book an appointment",
                                             flow_footer="Click the button below to proceed",
-                                            flow_id=str((<FLOW-ID>),
+                                            flow_id=str(<FLOW-ID>),
                                             flow_cta="Proceed",
                                             recipient_phone_number=phone_number)
 
@@ -103,7 +103,7 @@ def send_message(message, phone_number, message_option, name):
                 }
             })
         case "CHATBOT":
-            LLM = Llama(model_path="/home/incognito/Downloads/llama-2-7b-chat.ggmlv3.q8_0.gguf.bin")
+            LLM = Llama(model_path="<path>/llama-2-7b-chat.ggmlv3.q8_0.gguf.bin")
             # create a text prompt
             prompt = message
             # generate a response (takes several seconds)
@@ -170,4 +170,3 @@ def flow_details(flow_header, flow_body, flow_footer, flow_id, flow_cta, recipie
         "interactive": json.loads(flow_payload)
     })
     return payload
-

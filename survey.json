@@ -394,7 +394,7 @@
                         "children": [
                             {
                                 "type": "TextSubheading",
-                                "text": "What aspects of the tour did you find most enjoyable? (Select all that apply)"
+                                "text": "What aspects of the tour did you find most enjoyable?"
                             },
                             {
                                 "type": "RadioButtonsGroup",

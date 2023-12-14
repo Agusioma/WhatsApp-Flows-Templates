@@ -1,8 +1,8 @@
 {
-    "version": "2.1",
+    "version": "3.0",
     "screens": [
         {
-            "id": "SCREEN_ONE",
+            "id": "APPOINTMENT_INFO",
             "title": "Appointment",
             "data": {},
             "layout": {
@@ -27,7 +27,7 @@
                                 "input-type": "text",
                                 "required": true
                             },
-                             {
+                            {
                                 "type": "TextInput",
                                 "name": "lastname",
                                 "label": "Last Name",
@@ -41,18 +41,18 @@
                                 "input-type": "email",
                                 "required": true
                             },
-                                          {
-                "type": "DatePicker",
-                "name": "date",
-                "label": "The Appointment Date",
-                "min-date": "1693569600000",
-                "max-date": "1767182400000",
-                "required": true,
-                "unavailable-dates": [
-                  "1694779200000",
-                  "1697371200000"
-                ]
-              },
+                            {
+                                "type": "DatePicker",
+                                "name": "date",
+                                "label": "The Appointment Date",
+                                "min-date": "1693569600000",
+                                "max-date": "1767182400000",
+                                "required": true,
+                                "unavailable-dates": [
+                                    "1694779200000",
+                                    "1697371200000"
+                                ]
+                            },
                             {
                                 "type": "Footer",
                                 "label": "Proceed",
@@ -65,7 +65,8 @@
                                     "payload": {
                                         "firstname": "${form.firstname}",
                                         "lastname": "${form.lastname}",
-                                        "email": "${form.email}"
+                                        "email": "${form.email}",
+                                        "date": "${form.date}"
                                     }
                                 }
                             }
@@ -87,6 +88,10 @@
                     "__example__": "Example"
                 },
                 "email": {
+                    "type": "string",
+                    "__example__": "Example"
+                },
+                "date": {
                     "type": "string",
                     "__example__": "Example"
                 }
@@ -111,7 +116,7 @@
                                 "type": "RadioButtonsGroup",
                                 "label": "Choose one",
                                 "required": false,
-                                "name": "source",
+                                "name": "additional_info_choice",
                                 "data-source": [
                                     {
                                         "id": "0",
@@ -125,15 +130,15 @@
                                         "id": "2",
                                         "title": "Language Barriers"
                                     },
-                                     {
+                                    {
                                         "id": "3",
                                         "title": "Complex Logistics"
                                     },
-                                     {
+                                    {
                                         "id": "4",
                                         "title": "Exclusive Experiences"
                                     },
-                                     {
+                                    {
                                         "id": "5",
                                         "title": "Mental Health Support"
                                     },
@@ -149,10 +154,12 @@
                                 "on-click-action": {
                                     "name": "complete",
                                     "payload": {
-                                        "source": "${form.source}",
+                                        "additional_info_choice": "${form.additional_info_choice}",
                                         "firstname": "${data.firstname}",
                                         "lastname": "${data.lastname}",
-                                        "email": "${data.email}"
+                                        "email": "${data.email}",
+                                        "date": "${data.date}",
+                                        "flow_key": "appointment"
                                     }
                                 }
                             }
